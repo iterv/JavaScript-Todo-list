@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Muistilista</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="muistilista.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    
+    <body>
+        <div id="container">
+            <header>
+                <h2>Muistislista</h2>
+                <input type="text" name="Input" placeholder=""> <button id="button">Lisää</button>
+            </header>     
+                <ul id="lista">                    
+                </ul>
+            <button id="poista">poista lista</button>
+        </div>
+        <div>
+            Tämä lista toteutettu Jqueryllä. Tehdään <a href="toinenlista.html">toinen</a> JavaScriptillä.
+        </div>
+        
+        <!--lisätään JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+             $(document).ready (
+        function(){
+            $('#button').click(
+                        function(){
+                            var todo = $('input[name=Input]').val();
+                            if  (todo !== "") { // jos tyhjä, mitään ei lisätä. (! välilyönti ei ole tyhjä kenttä)
+                                $('ul').append('<li>' + todo);
+                                $('input[name=Input]').val(''); //tyhjennetään input kenttä
+                                $('input[name=Input]').focus(); //kodistetaan kursori
+                            }});
+                    });
+            //enterillä itemin lisääminen listaan:
+            $("input[name=Input]").keyup(function(event){
+                if(event.keyCode === 13){
+                  $("#button").click();
+              }
+              });
+        
+                $('#poista').click( function(){
+                $("#lista").remove();
+            }); // tämäpä nappi vaati vähän pohtimista. 
+
+                   
+            
+        </script>    
+    </body>
+</html>
+
+
+<!-- päiväkirja. 
+        Ulkoasuun ei jaksa enempiä panostaa.
+Mallia muistilistaan katson toiselle kurssille tehdystä JS-todolista-tehtävästä. Johon on katsottu mallia täältä: https://www.w3schools.com/howto/howto_js_todolist.asp
+Huomaan että jouduin tarkistamaan miten if-lause merkataan..
+-->

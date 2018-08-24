@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JS todo-lista</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link href="muistilista.css" rel="stylesheet" type="text/css"/> 
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h2>Muistislista</h2>
+                <input type="text" id="input" placeholder=""> <button type="button" onclick="lisaaListalle();">Lisää</button>
+            </header>     
+                <ul id="lista">                     
+                </ul>
+            <button type="button" onclick="poista();" > poista lista</button>
+        </div>
+        
+        <script>          
+            //kopioitu kurssin DOM-esimerkistä ja muokattu (lisätty muuttuja joka lukee inputin)
+            function lisaaListalle() {
+                var teksti = document.getElementById("input").value; // inputin lukeminen ja muuttmainen muuttujaksi
+                if (teksti !== "") { //tyhjää ei lisätä. Jostain syystä tämä ei toimi!? vieläkään ei toimi!
+                    var uusiRivi = document.createElement("li"); //luodaan uusi li-elementti
+                    var uusiTeksti = document.createTextNode(teksti); //luodaan tekstinode
+                    uusiRivi.appendChild(uusiTeksti);//lisätään teksti li-elementtiin
+                    document.getElementById("lista").appendChild(uusiRivi);
+                }
+                else {
+                    console.log("tyhjää ei lisätä");
+                }
+                document.getElementById("input").value = " "; //tämä oli vaikea muistaa
+                document.getElementById("input").focus(); // matkittu https://www.w3schools.com/jsref/met_html_focus.asp
+                
+            }
+    // poista nappi:
+        function poista() { // kopioitu täältä https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_select_remove2
+            var x = document.getElementById("lista");
+            x.remove();
+        }
+        
+     /* poista yksittäinen tämä nyt ei toiminut
+        function() {
+            var listItem=this.parentNode;
+            ul.removeChild(listItem);
+        };
+        */
+        
+</script>
+    </body>
+</html>
+
+<!-- Oppimispäiväkirja:
+    Koska viimeksi olin tehnyt (toiselle kurssille) JQueryä, tämä olikin nyt hetkittäin vaikeampaa tehdä JavaScriptillä! 
+Katsoin mallia tämän kurssin ensimmäisistä tehtävistä. 
+Kokeilin ensin tehdä teksti-muuttujan globaaliksi mutta jostain syystä se ei toiminut. Tiesin että se toimii ainakin lokaalina, mutta mielestäni jossain tehtävässä olen tehnyt
+samanlaisen muuttujan globaalina.
+Kopioimalla DOM-esimerkin, loin listan. Sitten matkin omaa ekaa versiotani if-lauseeseen.
+En muista miten saan input-kentän tyhjennettyä. turhautuminen johti tiedon hakuun: https://www.w3schools.com/howto/howto_html_clear_input.asp. En siis muistanut käyttää .value, 
+vaan yritin .HTML.
+Muuten alkaa olla valmis, mutta huomaan että if-lause ei toimikaan! lisään else: break. ei auta. Lisätty else ja merkintä console-logiin. Ei auta. En keksi nyt. 
+-->

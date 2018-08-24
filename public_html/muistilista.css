@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16.8.2018, 20:07:43
+    Author     : Omistaja
+*/
+
+header {
+    background-color: pink;
+    color: black;
+    font-family:  sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 1em;
+    margin: 15px;
+}
+
+lista {
+    background-color: grey; 
+}
+
+ul li {
+   
+   color: black;
+   font-family:  sans-serif;
+}
+
+ul li:hover {
+    background: darkgrey;
+}
+
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+#container {
+    width: 420px;
+    background-color: lightgray;
+    border-radius: 3px;
+    padding: 0px 15px 0px 15px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+}
+
+h1 {
+    background-color: pink;
+    text-align: center;
+    color: black;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: square;
+    margin: 20px 0 20px 0;
+}
+
+input[type=text] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 300px;
+    font-size: 15px;
+}
+
+button {
+    border: 1px solid #ccc;
+    margin: 15px;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+
